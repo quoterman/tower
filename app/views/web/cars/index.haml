@@ -1,0 +1,44 @@
+.row
+  .columns.small-12
+    %h2 #{t('web.car.title')}
+    %hr
+.row
+  .columns.medium-4.end
+    = link_to "#{t('web.car.new')}", new_car_path, class: 'button radius'
+
+.row
+  .columns.small-12
+    %table
+      %thead
+        %th #
+        %th Название
+        %th Гос. номер
+        %th ПТС
+        %th Дата ПТС
+        %th Фото
+        %th{colspan: 2} Новый
+
+      %tbody
+        - @cars.each do |car|
+          %tr
+            %td
+              = car.id
+            %td
+              = car.name
+            %td
+              = car.number
+            %td
+              = car.pts
+            %td
+              = car.pts_date
+            %td
+              - if car.decorate.check_image
+                yes
+              - else
+                no
+            %td
+              = link_to 'Редактировать', edit_car_path(car)
+            %td
+              = link_to 'Удалить', car, method: :delete
+    = paginate @cars
+

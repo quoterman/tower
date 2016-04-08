@@ -1,0 +1,35 @@
+= simple_form_for @car do |f|
+  .row
+    .columns.medium-12
+      .form-inputs
+        .row
+          .columns.medium-12
+            = f.error_notification
+
+        .row
+          .columns.medium-6
+            = f.input :name
+          .columns.medium-6
+            = f.input :pts
+        .row
+          .columns.medium-6
+            = f.input :number
+          .columns.medium-6
+            = f.label :pts_date
+            = f.text_field :pts_date, class: 'date datepicker', value: (f.object.pts_date.strftime(t 'date.formats.default') if f.object.pts_date.present?)
+            = f.error :pts_date
+        .row
+        .row
+          .columns.small-6
+          #image
+            = f.simple_fields_for :images do |i|
+              = render 'image_fields', :f => i
+            .links.small-12.columns
+              = link_to_add_association 'Добавить фотографию', f, :images
+      .form-actions
+        .row
+          .columns.small-6.medium-3.small-centered
+            .text-center
+              = f.button :submit, class: 'button radius'
+              %button{class: 'button radius', href: root_url}
+                Назад

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.9'
 
 ### OpenShift Online changes:
 
@@ -22,11 +22,6 @@ group :development, :test do
   gem 'thor'
 end
 
-# Add support for the MySQL
-group :production, :mysql do
-  gem 'mysql2'
-end
-
 group :production, :postgresql do
   gem 'pg'
 end
@@ -34,7 +29,7 @@ end
 ### / OpenShift changes
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -51,18 +46,28 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'simple_form'
+gem 'haml-rails'
+gem 'configus'
+gem 'draper'
+gem 'kaminari'
+gem 'foundation-rails', '~> 5.5.0'
+gem 'font-awesome-sass'
+gem 'jquery-inputmask-rails'
+gem 'jquery-ui-rails'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'cocoon'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'carrierwave'
+gem 'rmagick'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'  # enable advanced features of 'better_errors'
+end
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+source 'https://rails-assets.org' do
+  gem 'rails-assets-datetimepicker'
+  gem 'rails-assets-jquery.inputmask'
+end

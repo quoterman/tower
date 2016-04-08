@@ -1,0 +1,11 @@
+.nested-fields
+  - if f.object.image.present?
+    .columns.small-6
+      = image_tag f.object.image.url, style: 'width: 300px'
+      = link_to_remove_association f, style: 'position: absolute;' do
+        x
+  - else
+    .columns.small-12
+      = f.file_field :image
+      = link_to_remove_association f do
+        x

@@ -1,0 +1,67 @@
+ru:
+  date:
+    month_names:
+      -
+      - января
+      - февраля
+      - марта
+      - апреля
+      - мая
+      - июня
+      - июля
+      - августа
+      - сентября
+      - октября
+      - ноября
+      - декабря
+    order:
+      - :year
+      - :month
+      - :day
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %B"
+      long: "%B %d"
+      medium: '%d %b %Y'
+      long_date: '%d %B, %Y'
+    time:
+      formats:
+        default: "%d-%m-%Y %H:%M:%S"
+        short: "%d %B %H:%M"
+        short_publish: "%d %B"
+        long: "%B %d, %Y %H:%M"
+        date: "%m/%d/%Y"
+  layouts:
+    web:
+      title: 'tower'
+  web:
+      car:
+        title: 'Машины'
+        new: 'Новая машина'
+
+  simple_form:
+      labels:
+        car:
+          name: Название
+          pts: Номер ПТС
+          pts_date: Дата ПТС
+          number: Гос. Номер
+  helpers:
+      submit:
+        car:
+          create: Cоздать
+          update: Обновить
+
+  activerecord:
+    errors:
+      models:
+        car:
+          attributes:
+            name:
+              blank: это поле обязательно
+            pts:
+              blank: это поле обязательно
+            pts_date:
+              blank: это поле обязательно
+            number:
+              blank: это поле обязательно
